@@ -1,0 +1,296 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="calendar.css">
+    <link rel ="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+              <h1> Calendar </h1>
+            </div>
+            <div class="col-md-4 text-md-right" >
+              <select name="members" onchange="again()" id="checkMembers" >
+                <option>All Members</option>
+                <option >Maria</option>
+                <option >Zara</option>
+                <option >Sana</option>
+              <select>
+           
+            </div>
+              
+        <div class="col-md-4 text-md-left">
+        
+    <button id="myBtn">NEW EVENT+</button>
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">×</span>
+        <div   class="alert alert-danger fade in hide" id="error-name">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        </div>
+           <!-- form -->
+           <!-- <form id="form"> -->
+            <div class="form-group" id="form"  >
+              <label class="control-label col-md-2 form-label" >Name of the event</label>
+              <div class="col-sm-10">
+                <input  class="form-control" id="name" type="text" required >
+              </div>
+            </div>
+            <div class="form-group" >
+              <label class="control-label col-md-2" >participants</label>
+              <div class="col-md-10">
+                <select class="custom-select" id="participants" >
+                  <option selected disabled value="">Choose...</option>
+                  <option>Maria </option>
+                  <option>Zara</option>
+                  <option>Sana</option>
+                </select>
+              </div>   
+              </div>
+              <div class="form-group" >
+                <label class="control-label col-md-2" >Day</label>
+                <div class="col-sm-10">
+                  <select class="custom-select" id="day" >
+                    <option selected disabled value="">Choose day</option>
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                    <option>Friday</option>
+                  </select>
+                  
+                </div>
+              </div>
+              <div class="form-group" >
+                <label class="control-label col-md-2" >Time</label>
+                <div class="col-sm-10">
+                  <select class="custom-select" id="time" >
+                    <option selected disabled value="">Choose time</option>
+                    <option>10:00</option>
+                    <option>11:00</option>
+                    <option>12:00</option>
+                    <option>13:00</option>
+                    <option>14:00</option>
+                    <option>15:00</option>
+                    <option>16:00</option>
+                    <option>17:00</option>
+                    <option>18:00</option>
+                    
+                  </select>
+                </div>
+              </div>
+              
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-info" onclick="submithandle()" type="submit" value="Submit"  >Create</button>
+              </div>
+            </div>
+          <!-- </form> -->
+      </div>
+
+    </div>  
+              
+        </div> 
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered text-center " id="calenderTable" >
+            <thead>
+                <tr class="bg-info text-white ">
+                    <th class="text-uppercase ">Name</th>
+                    <th class="text-uppercase">Monday</th>
+                    <th class="text-uppercase">Tuesday</th>
+                    <th class="text-uppercase">Wednesday</th>
+                    <th class="text-uppercase">Thursday</th>
+                    <th class="text-uppercase">Friday</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody" >
+                <tr>
+                    <th class="align-middle bg-info text-white">10:00</th>
+                    <td>   
+                    </td>
+                    
+                    <td>    
+                    </td>
+                   
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+
+                    <td>
+                    </td>
+                   
+                </tr>
+
+                <tr>
+                    <th class="align-middle bg-info text-white">11:00</th>
+                    <td>
+                        
+                    </td>
+                    <td >
+
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                       
+                    </td>
+                    <td>
+                        
+                    </td>
+                   
+                </tr>
+
+                <tr>
+                    <th class="align-middle bg-info text-white">12:00</th>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                       
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                   
+                </tr>
+
+                <tr>
+                    <th class="align-middle bg-info text-white">13:00</th>
+                    <td >
+
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                       
+                    </td>
+                    <td >
+
+                    </td>
+                   
+                </tr>
+
+                <tr>
+                    <th class="align-middle bg-info text-white">14:00</th>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td >
+
+                    </td>
+                    <td>
+                      
+                    </td>
+                    <td>
+                       
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <th class="align-middle bg-info text-white">15:00</th>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td >
+
+                    </td>
+                    <td>
+                      
+                    </td>
+                    <td>
+                       
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <th class="align-middle bg-info text-white">16:00</th>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td >
+
+                    </td>
+                    <td>
+                      
+                    </td>
+                    <td>
+                       
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <th class="align-middle bg-info text-white">17:00</th>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td >
+
+                    </td>
+                    <td>
+                      
+                    </td>
+                    <td>
+                       
+                    </td>
+                   
+                </tr>
+                <tr>
+                    <th class="align-middle bg-info text-white">18:00</th>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td >
+
+                    </td>
+                    <td>
+                      
+                    </td>
+                    <td>
+                       
+                    </td>
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+      
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+   <script src="./calendar.js"></script>
+</body>
+</html>
