@@ -9,14 +9,15 @@ btn.onclick = function () {
 
 span.onclick = function () {
     modal.style.display = "none";
+    document.getElementById("error-name").classList.add('hide');
+  
 }
 
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
-    }
+    }   
 }
-
 
 function submithandle() {
     var name = document.getElementById("name").value;
@@ -50,7 +51,13 @@ function submithandle() {
 
         }
         return
+        
     }
+    document.getElementById("error-name").classList.add('hide')
+    document.getElementById("name").value=""; 
+    document.getElementById("participants").value="";
+    document.getElementById("day").value="";
+    document.getElementById("time").value="";
     if (!meetings?.length) {
         const newMeeting = JSON.stringify([myNewMeeting])
         localStorage.setItem("meetingArray", newMeeting)
@@ -66,11 +73,14 @@ function submithandle() {
         }
         meetings.push(myNewMeeting)
         localStorage.setItem("meetingArray", JSON.stringify(meetings))
+
     }
+    modal.style.display = "none";
     again()
 }
 
 
+   
 
 function again() {
     let table = document.getElementById('calenderTable')
@@ -113,7 +123,7 @@ function again() {
         if (row.length === column.length) {
             for (let z = 0; z < row.length; z++) {
                 const meet = allMeetings[z]
-                TableBody.rows[row[z]].children[column[z]].innerHTML +=
+                TableBody.rows[row[z]].children[column[z]].innerHTML =
                     `<div class="selected-cell" > ${allMeetings[z].name}  <span class="cross" onclick="removeMeeting('${meet.name}, ${meet.participants}, ${meet.Time}, ${meet.day} ')" id="${z}" > x </span></div>`
             }
         }
